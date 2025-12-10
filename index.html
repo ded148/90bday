@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 25%, #dcc992 50%, #d4be7f 75%, #c9b372 100%);
-            color: #5a4a3a;
+            background: linear-gradient(135deg, #3d2817 0%, #4a3220 25%, #5a3f2a 50%, #6b4e35 75%, #7a5c3f 100%);
+            color: #e8d4a8;
             overflow-x: hidden;
         }
 
@@ -28,8 +28,8 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #c9b372;
+            background: rgba(212, 175, 55, 0.9);
+            border: 2px solid #d4af37;
             border-radius: 50%;
             cursor: pointer;
             z-index: 1000;
@@ -37,12 +37,12 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .music-toggle:hover {
             transform: scale(1.1);
-            background: #fff;
+            background: #d4af37;
         }
 
         .music-toggle.playing {
@@ -84,7 +84,7 @@
             left: 20px;
             width: 150px;
             height: 150px;
-            border: 3px solid #c9b372;
+            border: 3px solid #d4af37;
             border-radius: 50%;
         }
 
@@ -93,7 +93,7 @@
             right: 20px;
             width: 200px;
             height: 200px;
-            border: 3px solid #c9b372;
+            border: 3px solid #d4af37;
             border-radius: 50%;
         }
 
@@ -126,7 +126,7 @@
 
         /* Первый экран - приветствие */
         .hero {
-            background: linear-gradient(135deg, #e8d4a8 0%, #f4e4c1 100%);
+            background: linear-gradient(135deg, #4a3220 0%, #3d2817 100%);
             text-align: center;
         }
 
@@ -138,17 +138,17 @@
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 6vw, 5rem);
-            color: #8b6914;
+            color: #d4af37;
             margin-bottom: 20px;
             font-weight: 600;
             letter-spacing: 4px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero .subtitle {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.2rem, 3vw, 2rem);
-            color: #a67c00;
+            color: #d4af37;
             margin-bottom: 40px;
             font-style: italic;
             font-weight: 500;
@@ -158,16 +158,16 @@
             display: inline-block;
             width: 150px;
             height: 150px;
-            border: 4px solid #c9b372;
+            border: 4px solid #d4af37;
             border-radius: 50%;
             line-height: 150px;
             font-size: 3.5rem;
             font-weight: bold;
-            color: #8b6914;
+            color: #d4af37;
             margin: 30px auto;
             animation: pulse 2s infinite;
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 20px rgba(201, 179, 114, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .invitation-text {
@@ -177,7 +177,7 @@
             max-width: 600px;
             margin: 30px auto;
             padding: 0 20px;
-            color: #6b5541;
+            color: #e8d4a8;
             font-weight: 400;
         }
 
@@ -185,13 +185,13 @@
             position: absolute;
             bottom: 30px;
             font-size: 0.9rem;
-            color: #a67c00;
+            color: #d4af37;
             animation: bounce 2s infinite;
         }
 
         /* Секция с деталями */
         .details {
-            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 100%);
+            background: linear-gradient(135deg, #3d2817 0%, #4a3220 100%);
         }
 
         .details-content {
@@ -200,21 +200,21 @@
         }
 
         .detail-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(90, 60, 40, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             margin: 20px 0;
-            box-shadow: 0 10px 40px rgba(139, 105, 20, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             text-align: center;
             animation: fadeInUp 1s ease-out;
-            border: 2px solid rgba(201, 179, 114, 0.3);
+            border: 2px solid rgba(212, 175, 55, 0.3);
         }
 
         .detail-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: #8b6914;
+            color: #d4af37;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -224,7 +224,7 @@
         .date-time {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.3rem, 3vw, 1.9rem);
-            color: #a67c00;
+            color: #d4af37;
             margin: 15px 0;
             font-weight: 600;
         }
@@ -233,7 +233,7 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             line-height: 1.8;
-            color: #6b5541;
+            color: #e8d4a8;
             margin: 15px 0;
             font-weight: 400;
         }
@@ -242,43 +242,43 @@
             display: inline-block;
             margin-top: 20px;
             padding: 15px 40px;
-            background: linear-gradient(135deg, #d4be7f 0%, #c9b372 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a32a 100%);
+            color: #3d2817;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             font-family: 'Playfair Display', serif;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .map-button:hover {
-            background: linear-gradient(135deg, #c9b372 0%, #b8a564 100%);
+            background: linear-gradient(135deg, #c9a32a 0%, #b8941e 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
         /* Форма RSVP */
         .rsvp {
-            background: linear-gradient(135deg, #dcc992 0%, #d4be7f 100%);
+            background: linear-gradient(135deg, #4a3220 0%, #3d2817 100%);
         }
 
         .rsvp-form {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(90, 60, 40, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 50px 40px;
             max-width: 600px;
             width: 100%;
-            box-shadow: 0 10px 40px rgba(139, 105, 20, 0.3);
-            border: 2px solid rgba(201, 179, 114, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(212, 175, 55, 0.3);
         }
 
         .rsvp-form h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: #8b6914;
+            color: #d4af37;
             margin-bottom: 30px;
             text-align: center;
             font-weight: 600;
@@ -291,7 +291,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #6b5541;
+            color: #d4af37;
             font-size: 1.1rem;
             font-family: 'Playfair Display', serif;
             font-weight: 500;
@@ -301,18 +301,19 @@
         .form-group select {
             width: 100%;
             padding: 15px;
-            border: 2px solid #d4be7f;
+            border: 2px solid #d4af37;
             border-radius: 10px;
             font-size: 1rem;
             font-family: 'Playfair Display', serif;
             transition: border-color 0.3s;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(60, 40, 25, 0.8);
+            color: #e8d4a8;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #c9b372;
+            border-color: #d4af37;
         }
 
         .radio-group {
@@ -341,8 +342,8 @@
         .submit-button {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #d4be7f 0%, #c9b372 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #c9a32a 100%);
+            color: #3d2817;
             border: none;
             border-radius: 50px;
             font-size: 1.2rem;
@@ -351,13 +352,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .submit-button:hover {
-            background: linear-gradient(135deg, #c9b372 0%, #b8a564 100%);
+            background: linear-gradient(135deg, #c9a32a 0%, #b8941e 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
         /* Финальная секция */
@@ -492,7 +493,7 @@
             <h1>Бақтыбаева</h1>
             <p class="subtitle">Қазима Ихсанқызы</p>
             
-            <div class="age-badge">90</div>
+            <div class="age-badge">90<br><span style="font-size: 1.5rem; font-weight: 400;">жас</span></div>
             
             <p class="invitation-text">
                 Құрметті туыстар, құдалар, достар, әріптестер!<br><br>
