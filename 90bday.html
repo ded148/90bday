@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мерейтойға шақыру</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 25%, #dcc992 50%, #d4be7f 75%, #c9b372 100%);
+            color: #5a4a3a;
+            overflow-x: hidden;
+        }
+
+        /* Музыкальная кнопка */
+        .music-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #c9b372;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
+        .music-toggle.playing {
+            animation: musicPulse 1.5s infinite;
+        }
+
+        .music-icon {
+            font-size: 24px;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Декоративные элементы */
+        .ornament {
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .ornament-top {
+            top: 20px;
+            left: 20px;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #c9b372;
+            border-radius: 50%;
+        }
+
+        .ornament-bottom {
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #c9b372;
+            border-radius: 50%;
+        }
+
+        /* Золотые частицы на фоне */
+        .gold-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(218, 165, 32, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        /* Первый экран - приветствие */
+        .hero {
+            background: linear-gradient(135deg, #e8d4a8 0%, #f4e4c1 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: #8b6914;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #a67c00;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .age-badge {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border: 4px solid #c9b372;
+            border-radius: 50%;
+            line-height: 150px;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #8b6914;
+            margin: 30px auto;
+            animation: pulse 2s infinite;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(201, 179, 114, 0.5);
+        }
+
+        .invitation-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 2;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+            color: #6b5541;
+            font-weight: 400;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            color: #a67c00;
+            animation: bounce 2s infinite;
+        }
+
+        /* Секция с деталями */
+        .details {
+            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 100%);
+        }
+
+        .details-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(139, 105, 20, 0.2);
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            border: 2px solid rgba(201, 179, 114, 0.3);
+        }
+
+        .detail-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #8b6914;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .date-time {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            color: #a67c00;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .location-info {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            color: #6b5541;
+            margin: 15px 0;
+            font-weight: 400;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #d4be7f 0%, #c9b372 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+        }
+
+        .map-button:hover {
+            background: linear-gradient(135deg, #c9b372 0%, #b8a564 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+        }
+
+        /* Форма RSVP */
+        .rsvp {
+            background: linear-gradient(135deg, #dcc992 0%, #d4be7f 100%);
+        }
+
+        .rsvp-form {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(139, 105, 20, 0.3);
+            border: 2px solid rgba(201, 179, 114, 0.3);
+        }
+
+        .rsvp-form h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #8b6914;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #6b5541;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #d4be7f;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            transition: border-color 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c9b372;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #d4be7f 0%, #c9b372 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #c9b372 0%, #b8a564 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+        }
+
+        /* Финальная секция */
+        .footer {
+            background: linear-gradient(135deg, #8b6914 0%, #a67c00 100%);
+            color: #f5f0e8;
+            text-align: center;
+            padding: 60px 20px;
+            min-height: auto;
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .organizers {
+            margin-top: 30px;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .detail-card {
+                padding: 30px 20px;
+            }
+
+            .rsvp-form {
+                padding: 40px 25px;
+            }
+
+            .age-badge {
+                width: 120px;
+                height: 120px;
+                line-height: 120px;
+                font-size: 3rem;
+            }
+
+            .music-toggle {
+                width: 50px;
+                height: 50px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .music-icon {
+                font-size: 20px;
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: #90EE90;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            color: #2d5016;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Музыкальная кнопка -->
+    <div class="music-toggle" id="musicToggle">
+        <span class="music-icon">🎵</span>
+    </div>
+
+    <!-- Аудио (замените src на вашу музыку) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Золотые частицы -->
+    <script>
+        // Создаем золотые частицы
+        for(let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'gold-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <!-- Приветственная секция -->
+    <section class="section hero">
+        <div class="ornament ornament-top"></div>
+        <div class="hero-content">
+            <h1>Бақтыбаева</h1>
+            <p class="subtitle">Қазима Ихсанқызы</p>
+            
+            <div class="age-badge">90</div>
+            
+            <p class="invitation-text">
+                Құрметті туыстар, құдалар, достар, әріптестер!<br><br>
+                Сіздерді аяулы анамыз Бақтыбаева Қазима Ихсанқызының<br>
+                мерейтойына арналған салтанатты ақ дастарханымыздың<br>
+                қадірлі қонағы болуға шақырамыз!
+            </p>
+        </div>
+        <div class="scroll-hint">▼ Төмен түсіріңіз</div>
+        <div class="ornament ornament-bottom"></div>
+    </section>
+
+    <!-- Детали мероприятия -->
+    <section class="section details">
+        <div class="details-content">
+            <div class="detail-card">
+                <h2>Мерейтой</h2>
+                <p class="date-time">17 қаңтар 2026 жыл</p>
+                <p class="date-time">Сағат 15:00</p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Мекен-жайымыз</h2>
+                <p class="location-info">
+                    <strong>"Crystal Hall" Банкет залы</strong><br>
+                    Алматы қаласы, Ерубаев көшесі, 8/9
+                </p>
+                <a href="https://go.2gis.com/tAg1E" target="_blank" class="map-button">Картаны көрсету</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма подтверждения -->
+    <section class="section rsvp">
+        <form class="rsvp-form" id="rsvpForm">
+            <h2>Қатысуыңызды растау</h2>
+
+            <div class="form-group">
+                <label for="name">Аты-жөніңіз*</label>
+                <input type="text" id="name" name="name" placeholder="Мысалы: Асан Әлиев" required>
+            </div>
+
+            <div class="form-group">
+                <label>Қатысу*</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="attending" name="attendance" value="attending" required>
+                        <label for="attending">Қатысамын</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="with-spouse" name="attendance" value="with-spouse">
+                        <label for="with-spouse">Жұбайыммен боламын</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="not-attending" name="attendance" value="not-attending">
+                        <label for="not-attending">Өкінішке орай, келе алмаймын</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="spouseNameGroup" style="display: none;">
+                <label for="spouseName">Жұбайыңыздың аты-жөні</label>
+                <input type="text" id="spouseName" name="spouseName" placeholder="Мысалы: Гүлназ Әлиева">
+            </div>
+
+            <button type="submit" class="submit-button">Жіберу</button>
+            
+            <div class="success-message" id="successMessage">
+                Рахмет! Сіздің жауабыңыз қабылданды.
+            </div>
+        </form>
+    </section>
+
+    <!-- Финальная секция -->
+    <section class="footer">
+        <h3>Қуанышымызға ортақ болыңыздар!</h3>
+        <p>Бұл ерекше күнде бізбен бірге болғаныңызға шексіз қуаныштымыз</p>
+        <div class="organizers">
+            Той иелері:<br>
+            Балалары мен немерелері
+        </div>
+    </section>
+
+    <script>
+        // Музыка
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicToggle.querySelector('.music-icon').textContent = '🎵';
+            } else {
+                bgMusic.play();
+                musicToggle.classList.add('playing');
+                musicToggle.querySelector('.music-icon').textContent = '🎶';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Показ/скрытие поля для имени супруга
+        const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+        const spouseNameGroup = document.getElementById('spouseNameGroup');
+        const spouseNameInput = document.getElementById('spouseName');
+
+        attendanceRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'with-spouse') {
+                    spouseNameGroup.style.display = 'block';
+                    spouseNameInput.required = true;
+                } else {
+                    spouseNameGroup.style.display = 'none';
+                    spouseNameInput.required = false;
+                    spouseNameInput.value = '';
+                }
+            });
+        });
+
+        // Обработка отправки формы
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('attendance', document.querySelector('input[name="attendance"]:checked').value);
+            formData.append('spouseName', document.getElementById('spouseName').value);
+
+            // Замените ЭТО_ЗНАЧЕНИЕ на реальный URL вашего развёрнутого Google Apps Script Web App
+            const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwGpcA6_vH_nZ_zDshs9IT1kn8fByYfccqBDXG-tnaGEo9Q3HtlEU7le66v6eiHKnug/exec';
+            
+            // Отправляем данные в Google Apps Script
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .catch(error => {
+                // Если CORS блокирует fetch, данные всё равно могут быть отправлены
+                console.log('Данные отправлены (возможна блокировка CORS при получении ответа)');
+            })
+            .finally(() => {
+                // Показываем сообщение об успехе локально
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Очищаем форму через 3 секунды
+                setTimeout(() => {
+                    document.getElementById('rsvpForm').reset();
+                    spouseNameGroup.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            });
+        });
+
+        // Плавная прокрутка
+        document.querySelector('.scroll-hint').addEventListener('click', function() {
+            document.querySelector('.details').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Анимация при прокрутке
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.detail-card, .rsvp-form').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
