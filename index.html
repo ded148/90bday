@@ -28,6 +28,15 @@
             font-style: normal;
         }
 
+        /* SVG фоны с цветами и листьями */
+        @supports (background-image: url('data:image/svg+xml')) {
+            :root {
+                --rose-bg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><defs><linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%25" style="stop-color:%23e91e63;stop-opacity:0.15"/><stop offset="100%25" style="stop-color:%23c2185b;stop-opacity:0.1"/></linearGradient><linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%25" style="stop-color:%2366bb6a;stop-opacity:0.12"/><stop offset="100%25" style="stop-color:%2343a047;stop-opacity:0.08"/></linearGradient></defs><rect width="400" height="600" fill="url(%23roseGrad)"/><circle cx="50" cy="80" r="35" fill="%23e91e63" opacity="0.12"/><circle cx="350" cy="450" r="40" fill="%23c2185b" opacity="0.1"/><circle cx="80" cy="500" r="32" fill="%23ec407a" opacity="0.11"/><ellipse cx="300" cy="150" rx="25" ry="35" fill="url(%23leafGrad)"/><ellipse cx="70" cy="300" rx="22" ry="32" fill="url(%23leafGrad)"/><ellipse cx="320" cy="520" rx="28" ry="38" fill="%2366bb6a" opacity="0.1"/><path d="M 150 100 Q 160 120 150 140" stroke="%23c2185b" stroke-width="2" fill="none" opacity="0.08"/><path d="M 250 350 Q 260 370 250 390" stroke="%2343a047" stroke-width="2" fill="none" opacity="0.08"/></svg>');
+                --carnation-bg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><defs><linearGradient id="carnGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%25" style="stop-color:%23ff69b4;stop-opacity:0.13"/><stop offset="100%25" style="stop-color:%23ff1493;stop-opacity:0.09"/></linearGradient><linearGradient id="leaf2Grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%25" style="stop-color:%2358a65c;stop-opacity:0.11"/><stop offset="100%25" style="stop-color:%233d8b40;stop-opacity:0.07"/></linearGradient></defs><rect width="400" height="600" fill="url(%23carnGrad)"/><circle cx="100" cy="120" r="28" fill="%23ff69b4" opacity="0.11"/><circle cx="300" cy="380" r="32" fill="%23ff1493" opacity="0.09"/><circle cx="320" cy="100" r="25" fill="%23ffc0cb" opacity="0.1"/><ellipse cx="60" cy="400" rx="20" ry="30" fill="url(%23leaf2Grad)"/><ellipse cx="280" cy="200" rx="24" ry="34" fill="url(%23leaf2Grad)"/><path d="M 200 50 L 210 70 L 195 75 Z" fill="%23ff69b4" opacity="0.08"/></svg>');
+                --leaf-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><defs><linearGradient id="leaf3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%25" style="stop-color:%2366bb6a;stop-opacity:0.1"/><stop offset="100%25" style="stop-color:%233d8b40;stop-opacity:0.06"/></linearGradient></defs><ellipse cx="350" cy="250" rx="30" ry="45" fill="url(%23leaf3)" transform="rotate(-45 350 250)"/><ellipse cx="50" cy="550" rx="28" ry="42" fill="url(%23leaf3)" transform="rotate(35 50 550)"/><ellipse cx="200" cy="100" rx="26" ry="40" fill="url(%23leaf3)" transform="rotate(-20 200 100)"/><ellipse cx="150" cy="520" rx="24" ry="38" fill="url(%23leaf3)" transform="rotate(45 150 520)"/></svg>');
+            }
+        }
+
         body {
             font-family: 'Playfair Display', serif;
             background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 25%, #f0e9df 50%, #e8dcc8 75%, #f5f0e8 100%);
@@ -168,7 +177,7 @@
 
         /* Первый экран - приветствие */
         .hero {
-            background: linear-gradient(rgba(232, 220, 200, 0.75), rgba(232, 220, 200, 0.75)), url('fixed_background.png') center/cover fixed;
+            background: linear-gradient(rgba(232, 220, 200, 0.75), rgba(232, 220, 200, 0.75)), var(--rose-bg), url('fixed_background.png') center/cover fixed;
             background-color: #e8dcc8;
             text-align: center;
         }
@@ -259,7 +268,7 @@
 
         /* Секция с деталями */
         .details {
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
+            background: var(--carnation-bg), linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
         }
 
         .details-content {
@@ -338,7 +347,7 @@
 
         /* Форма RSVP */
         .rsvp {
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
+            background: var(--rose-bg), var(--leaf-overlay), linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
         }
 
         .rsvp-form {
@@ -446,7 +455,7 @@
 
         /* Финальная секция */
         .footer {
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
+            background: var(--carnation-bg), var(--leaf-overlay), linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
             color: #8b6914;
             text-align: center;
             padding: 60px 20px;
