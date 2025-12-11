@@ -531,6 +531,27 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
+            /* Оптимизация фиксированных фонов для мобильных */
+            .hero {
+                background: linear-gradient(rgba(232, 220, 200, 0.7), rgba(232, 220, 200, 0.7)), url('flower1.png') center/contain no-repeat fixed;
+                background-color: #e8dcc8;
+            }
+
+            .details {
+                background: linear-gradient(rgba(245, 240, 232, 0.68), rgba(245, 240, 232, 0.68)), url('flower2.jpg') center/contain no-repeat fixed;
+                background-color: #f5f0e8;
+            }
+
+            .rsvp {
+                background: linear-gradient(rgba(245, 240, 232, 0.68), rgba(245, 240, 232, 0.68)), url('flower1.png') center/contain no-repeat fixed;
+                background-color: #f5f0e8;
+            }
+
+            .footer {
+                background: linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)), url('flower2.jpg') center/contain no-repeat fixed;
+                background-color: #ffffff;
+            }
+
             .detail-card {
                 padding: 30px 20px;
             }
