@@ -21,9 +21,16 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'Ventura Script';
+            src: url('Ventura_Script (1).ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 25%, #f0e9df 50%, #e8dcc8 75%, #f5f0e8 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 25%, #ffffff 50%, #fafaf8 75%, #ffffff 100%);
             color: #8b6914;
             overflow-x: hidden;
         }
@@ -161,7 +168,7 @@
 
         /* Первый экран - приветствие */
         .hero {
-            background: linear-gradient(135deg, #e8dcc8 0%, #f5f0e8 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
             text-align: center;
         }
 
@@ -173,17 +180,23 @@
         .hero h1 {
             font-family: 'KZ Balmoral', serif;
             font-size: clamp(3.5rem, 8vw, 7rem);
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
             font-weight: normal;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: none;
         }
 
         .hero .subtitle {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.6rem, 4vw, 2.8rem);
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 40px;
             font-style: italic;
             font-weight: 500;
@@ -206,13 +219,16 @@
         }
 
         .invitation-text {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.3rem, 2.5vw, 1.7rem);
             line-height: 2;
             max-width: 600px;
             margin: 30px auto;
             padding: 0 20px;
-            color: #8b6914;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 400;
         }
 
@@ -220,15 +236,18 @@
             position: absolute;
             bottom: 30px;
             font-size: 0.9rem;
-            color: #d4af37;
             animation: bounce 2s infinite;
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: 1.3rem;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Секция с деталями */
         .details {
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
         }
 
         .details-content {
@@ -249,9 +268,12 @@
         }
 
         .detail-card h2 {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -259,18 +281,24 @@
         }
 
         .date-time {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.3rem, 3vw, 1.9rem);
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 15px 0;
             font-weight: 400;
         }
 
         .location-info {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             line-height: 1.8;
-            color: #8b6914;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 15px 0;
             font-weight: 400;
         }
@@ -298,7 +326,7 @@
 
         /* Форма RSVP */
         .rsvp {
-            background: linear-gradient(135deg, #4a3220 0%, #3d2817 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
         }
 
         .rsvp-form {
@@ -313,9 +341,12 @@
         }
 
         .rsvp-form h2 {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 30px;
             text-align: center;
             font-weight: 400;
@@ -328,10 +359,13 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #d4af37;
             font-size: 1.1rem;
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-weight: 400;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .form-group input,
@@ -379,12 +413,12 @@
         .submit-button {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a32a 100%);
-            color: #3d2817;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            color: #fff;
             border: none;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-weight: 400;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -400,33 +434,45 @@
 
         /* Финальная секция */
         .footer {
-            background: linear-gradient(135deg, #8b6914 0%, #a67c00 100%);
-            color: #f5f0e8;
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
+            color: #8b6914;
             text-align: center;
             padding: 60px 20px;
             min-height: auto;
         }
 
         .footer h3 {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 20px;
             font-weight: 400;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .footer p {
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             line-height: 1.8;
             font-weight: 400;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .organizers {
             margin-top: 30px;
             font-size: clamp(1.2rem, 2vw, 1.5rem);
             font-style: italic;
-            font-family: 'Allura', cursive;
+            font-family: 'Ventura Script', cursive;
             font-weight: 400;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Анимации */
