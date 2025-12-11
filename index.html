@@ -185,7 +185,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 20px;
-            margin-top: 40px;
+            margin-top: 80px;
             font-weight: normal;
             letter-spacing: 2px;
             text-shadow: none;
@@ -204,14 +204,17 @@
         }
 
         .age-badge {
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 150px;
             height: 150px;
             border: 4px solid #8B7500;
             border-radius: 50%;
-            line-height: 150px;
+            font-family: 'Ventura Script', cursive;
             font-size: 3.5rem;
-            font-weight: bold;
+            font-weight: 400;
             background: linear-gradient(135deg, #8B7500 0%, #b39f2f 50%, #6b5c00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -219,6 +222,11 @@
             margin: 30px auto;
             animation: pulse 2s infinite;
             box-shadow: 0 0 20px rgba(139, 117, 0, 0.5);
+        }
+        
+        .age-badge span {
+            font-size: 1.3rem;
+            font-weight: 400;
         }
 
         .invitation-text {
@@ -517,12 +525,10 @@
             .rsvp-form {
                 padding: 40px 25px;
             }
-
             .age-badge {
                 width: 120px;
                 height: 120px;
-                line-height: 120px;
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
 
             .music-toggle {
@@ -580,7 +586,7 @@
             <h1>Бақтыбаева</h1>
             <p class="subtitle">Қазима Ихсанқызы</p>
             
-            <div class="age-badge">90<br><span style="font-size: 1.5rem; font-weight: 400;">жас</span></div>
+            <div class="age-badge">90<div style="margin-top: 5px;">жас</div></div>
             
             <p class="invitation-text">
                 Құрметті туыстар, құдалар, достар, әріптестер!<br><br>
