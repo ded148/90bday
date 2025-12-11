@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 25%, #ffffff 50%, #fafaf8 75%, #ffffff 100%);
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 25%, #f0e9df 50%, #e8dcc8 75%, #f5f0e8 100%);
             color: #8b6914;
             overflow-x: hidden;
         }
@@ -168,7 +168,7 @@
 
         /* Первый экран - приветствие */
         .hero {
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
+            background: linear-gradient(135deg, #e8dcc8 0%, #f5f0e8 100%);
             text-align: center;
         }
 
@@ -211,10 +211,12 @@
             line-height: 150px;
             font-size: 3.5rem;
             font-weight: bold;
-            color: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d572 50%, #c9a32a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 30px auto;
             animation: pulse 2s infinite;
-            background: rgba(0, 0, 0, 0.3);
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
@@ -247,7 +249,7 @@
 
         /* Секция с деталями */
         .details {
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
         }
 
         .details-content {
@@ -326,17 +328,17 @@
 
         /* Форма RSVP */
         .rsvp {
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf8 100%);
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
         }
 
         .rsvp-form {
-            background: rgba(90, 60, 40, 0.8);
+            background: rgba(245, 240, 232, 0.9);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 50px 40px;
             max-width: 600px;
             width: 100%;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             border: 2px solid rgba(212, 175, 55, 0.3);
         }
 
