@@ -700,6 +700,19 @@
         const bgMusic = document.getElementById('bgMusic');
         let isPlaying = false;
 
+        // Автоматическое проигрывание музыки при загрузке страницы
+        window.addEventListener('load', function() {
+            bgMusic.volume = 0.5; // Устанавливаем громкость на 50%
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicToggle.classList.add('playing');
+                musicToggle.querySelector('.music-icon').textContent = '🎶';
+            }).catch(() => {
+                // Если автопроигрывание не разрешено браузером, пользователь может нажать кнопку
+                console.log('Автоматическое проигрывание не разрешено браузером');
+            });
+        });
+
         musicToggle.addEventListener('click', function() {
             if (isPlaying) {
                 bgMusic.pause();
