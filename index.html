@@ -773,6 +773,12 @@
             bgMusic.currentTime = 0;
         });
 
+        // Останавливаем музыку при потере фокуса (например, переход в другое приложение)
+        window.addEventListener('blur', function() {
+            bgMusic.pause();
+            bgMusic.currentTime = 0;
+        });
+
         // Останавливаем музыку при переходе на другую страницу (для некоторых браузеров)
         window.addEventListener('pagehide', function() {
             bgMusic.pause();
