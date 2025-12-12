@@ -581,7 +581,7 @@
 <body>
     <!-- Музыкальная кнопка -->
     <!-- Аудио -->
-    <audio id="bgMusic" loop autoplay muted>
+    <audio id="bgMusic" loop autoplay>
         <source src="audio.mp3" type="audio/mpeg">
     </audio>
 
@@ -694,25 +694,28 @@
         // Музыка
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
-        let isMuted = true;
 
-        // Подготовка музыки при загрузке
-        window.addEventListener('load', function() {
-            bgMusic.currentTime = 14; // Начинают с 14-й секунды
+        // Автоматическое проигрывание музыки с начала с 14-й секунды
+        function playMusic() {
+            bgMusic.currentTime = 14; // Начинать с 14-й секунды
             bgMusic.volume = 0.5; // Громкость 50%
             bgMusic.play().catch(() => {
-                console.log('Автопроигрывание загружено');
+                console.log('Автоматическое проигрывание не разрешено браузером');
             });
+        }
+
+        // Попытка автопроигрывания при загрузке
+        window.addEventListener('load', function() {
+            playMusic();
         });
 
-        // Отключить затухание при первом клике (включить звук)
-        document.addEventListener('click', function enableAudio() {
-            if (isMuted) {
-                bgMusic.muted = false;
-                isMuted = false;
-                console.log('Музыка включена');
+        // Если автопроигрывание не сработало, то проигрывание при первом клике на странице
+        document.addEventListener('click', function startPlayOnFirstClick() {
+            if (bgMusic.paused) {
+                playMusic();
+                document.removeEventListener('click', startPlayOnFirstClick);
             }
-        }, { once: true }); // Одноразовый слушатель
+        }, { once: false });
 
         // Показ/скрытие поля для имени супруга
         const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
