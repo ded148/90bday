@@ -695,13 +695,27 @@
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
 
-        // Автоматическое проигрывание музыки
-        window.addEventListener('load', function() {
+        // Автоматическое проигрывание музыки с начала с 14-й секунды
+        function playMusic() {
+            bgMusic.currentTime = 14; // Начинать с 14-й секунды
             bgMusic.volume = 0.5; // Громкость 50%
             bgMusic.play().catch(() => {
                 console.log('Автоматическое проигрывание не разрешено браузером');
             });
+        }
+
+        // Попытка автопроигрывания при загрузке
+        window.addEventListener('load', function() {
+            playMusic();
         });
+
+        // Если автопроигрывание не сработало, то проигрывание при первом клике на странице
+        document.addEventListener('click', function startPlayOnFirstClick() {
+            if (bgMusic.paused) {
+                playMusic();
+                document.removeEventListener('click', startPlayOnFirstClick);
+            }
+        }, { once: false });
 
         // Показ/скрытие поля для имени супруга
         const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
