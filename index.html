@@ -576,6 +576,34 @@
             color: #2d5016;
             font-family: 'Playfair Display', serif;
         }
+        
+        .age-badge-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 250px;
+            margin: 30px auto;
+        }
+
+        .flower-wreath {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('flower_wreath.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .age-badge {
+            position: relative;
+            z-index: 2;
+            /* Остальные стили для age-badge остаются без изменений */
+        }
+
     </style>
 </head>
 <body>
@@ -605,7 +633,11 @@
             <h1>Бақтыбаева</h1>
             <p class="subtitle">Қазима Ихсанқызы</p>
             
-            <div class="age-badge">90<span>жас</span></div>
+            <div class="age-badge-container">
+                <div class="flower-wreath"></div>
+                <div class="age-badge">90<span>жас</span></div>
+            </div>
+
             
             <p class="invitation-text">
                 Құрметті туыстар, құдалар, достар, әріптестер!<br><br>
