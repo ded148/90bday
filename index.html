@@ -580,13 +580,9 @@
 </head>
 <body>
     <!-- Музыкальная кнопка -->
-    <div class="music-toggle" id="musicToggle">
-        <span class="music-icon">🎵</span>
-    </div>
-
-    <!-- Аудио (замените src на вашу музыку) -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mpeg">
+    <!-- Аудио -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="audio.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Золотые частицы -->
@@ -698,32 +694,13 @@
         // Музыка
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
-        let isPlaying = false;
 
-        // Автоматическое проигрывание музыки при загрузке страницы
+        // Автоматическое проигрывание музыки
         window.addEventListener('load', function() {
-            bgMusic.volume = 0.5; // Устанавливаем громкость на 50%
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                musicToggle.classList.add('playing');
-                musicToggle.querySelector('.music-icon').textContent = '🎶';
-            }).catch(() => {
-                // Если автопроигрывание не разрешено браузером, пользователь может нажать кнопку
+            bgMusic.volume = 0.5; // Громкость 50%
+            bgMusic.play().catch(() => {
                 console.log('Автоматическое проигрывание не разрешено браузером');
             });
-        });
-
-        musicToggle.addEventListener('click', function() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicToggle.classList.remove('playing');
-                musicToggle.querySelector('.music-icon').textContent = '🎵';
-            } else {
-                bgMusic.play();
-                musicToggle.classList.add('playing');
-                musicToggle.querySelector('.music-icon').textContent = '🎶';
-            }
-            isPlaying = !isPlaying;
         });
 
         // Показ/скрытие поля для имени супруга
