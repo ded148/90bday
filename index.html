@@ -767,24 +767,6 @@
             }
         }, { once: false });
 
-        // Останавливаем музыку при закрытии страницы
-        window.addEventListener('beforeunload', function() {
-            bgMusic.pause();
-            bgMusic.currentTime = 0;
-        });
-
-        // Останавливаем музыку при потере фокуса (например, переход в другое приложение)
-        window.addEventListener('blur', function() {
-            bgMusic.pause();
-            bgMusic.currentTime = 0;
-        });
-
-        // Останавливаем музыку при переходе на другую страницу (для некоторых браузеров)
-        window.addEventListener('pagehide', function() {
-            bgMusic.pause();
-            bgMusic.currentTime = 0;
-        });
-
         // Показ/скрытие поля для имени супруга
         const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
         const spouseNameGroup = document.getElementById('spouseNameGroup');
